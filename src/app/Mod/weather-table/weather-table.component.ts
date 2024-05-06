@@ -97,7 +97,7 @@ processCityInput(): void {
   loadLastMonthData(lon: any,lat:any): void {
     
     this.dialog.open(WeatherDetailsModalComponent, {
-      width: '250px',
+      width: '570px',
       data: { lon: lon, lat: lat , arg: 0}
       
     });
