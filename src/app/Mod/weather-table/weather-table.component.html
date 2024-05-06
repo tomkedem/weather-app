@@ -11,12 +11,12 @@
     <ng-container *ngFor="let data of weatherData">
       <tr>
         <td>{{ data.city }}</td>
-        <td>{{ data.temperature }}</td>
-        <td>
-          <button class="btn btn-secondary" (click)="toggleShowLastWeek(data)">Open below</button>
-        </td>
+        <td>{{ data.temperature }}</td>       
         <td>
           <button class="btn btn-primary" (click)="loadLastMonthData(data.lon,data.lat)">Open popup</button>
+        </td>
+        <td>
+          <button class="btn btn-secondary" (click)="toggleShowLastWeek(data)">Open below</button>
         </td>
       </tr>
       <tr *ngIf="isShowLastWeek === data" >

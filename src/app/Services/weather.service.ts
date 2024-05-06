@@ -26,9 +26,7 @@ export class WeatherService {
     return this.http.get(this.apiUrl, { params });
    
   }
-  // getTemperature(lat:any, lot: any): Observable<any> {
-  //   return this.http.get(`api/temperature/${lat}/${lot}`);
-  // }
+ 
   getTemperature(lon: number, lat: number): Observable<any> {
     const params = `?lon=${lon}&lat=${lat}&product=civil&output=json`;
     return this.http.get(`${this.weatherApiUrl}${params}`);
