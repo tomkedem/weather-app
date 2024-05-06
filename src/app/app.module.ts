@@ -15,6 +15,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChildWeatherTableComponent } from './Mod/child-weather-table/child-weather-table.component';
 import { WeatherDetailsModalComponent } from './Mod/weather-details-modal/weather-details-modal.component';
 import { RoundDownPipe } from './pipe/round-down.pipe';
+import { GlobalErrorHandler } from './shared/global-error-handler.service';
+
+
 
 @NgModule({
   declarations: [
@@ -35,7 +38,9 @@ import { RoundDownPipe } from './pipe/round-down.pipe';
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    GlobalErrorHandler
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

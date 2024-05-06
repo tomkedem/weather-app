@@ -32,7 +32,7 @@ export class WeatherService {
     return this.http.get(`${this.weatherApiUrl}${params}`);
   }
   getTemperatureLastWeek(longitude: any, latitude: any, dayCount: number): Observable<any> {
-    const endDate = new Date().toISOString().split('T')[0];
+    
     const startDate = new Date();
     startDate.setDate(startDate.getDate() - dayCount);
 
