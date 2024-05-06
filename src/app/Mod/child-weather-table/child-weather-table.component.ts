@@ -19,7 +19,7 @@ export class ChildWeatherTableComponent implements OnInit {
   @Input() longitude!: number | null;
   @Input() arg!: number | null;
 
-  
+  dayCount:number = 7;
   weatherData: WeatherData[] = [];
 
   constructor(private weatherService: WeatherService) { }
@@ -27,11 +27,9 @@ export class ChildWeatherTableComponent implements OnInit {
   ngOnInit() {
     if (this.latitude && this.longitude) {
       console.log("Hi from Child arg:==>", this.arg);
-      if (this.arg === 1) {
-        this.getWeatherData();
-      }else{
-        this.getWeatherDataMonth();
-      }     
+     // call the function to get the weather data
+      this.getWeatherData();
+         
     }
   }
   isScrollable(): boolean {
@@ -42,26 +40,14 @@ export class ChildWeatherTableComponent implements OnInit {
 
   
   getWeatherData() {
-    this.weatherService.getTemperatureLastWeek(this.longitude,this.latitude).subscribe((data) => {
+    if (this.arg === 1) this.dayCount = 7; else this.dayCount = 30;
+    this.weatherService.getTemperatureLastWeek(this.longitude,this.latitude,this.dayCount).subscribe((data) => {
       this.weatherData = data.map((item:any) => ({
         date: item.date,
         averageTemperature: item.averageTemperature
       }));
-      console.log("Hi getTemperatureLastWeek tom from Child:==>", data);
-  
     });
    
   }
-  getWeatherDataMonth() {
-    this.weatherService.getTemperatureLastMonth(this.longitude,this.latitude).subscribe((data) => {
-      this.weatherData = data.map((item:any) => ({
-        date: item.date,
-        averageTemperature: item.averageTemperature
-      }));
-      console.log("Hi getTemperatureLastWeek tom from Child:==>", data);
-  
-    });
-   
-  }
-
+ 
 }
