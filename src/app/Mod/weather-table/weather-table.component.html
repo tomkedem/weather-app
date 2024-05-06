@@ -1,34 +1,45 @@
-<table class="modern-table">
-  <thead>
-    <tr>
-      <th>City</th>
-      <th>Temperature</th>
-      <th>Last Week</th>
-      <th>Last Month</th>
-    </tr>
-  </thead>
-  <tbody>
-    <ng-container *ngFor="let data of weatherData">
-      <tr>
-        <td>{{ data.city }}</td>
-        <td>{{ data.temperature }}</td>       
-        <td>
-          <button class="btn btn-primary" (click)="loadLastMonthData(data.lon,data.lat)">Open popup</button>
-        </td>
-        <td>
-          <button class="btn btn-secondary" (click)="toggleShowLastWeek(data)">Open below</button>
-        </td>
-      </tr>
-      <tr *ngIf="isShowLastWeek === data" >
-        <td colspan="2" class="bold-border">
-          <app-child-weather-table [latitude]="data.lat" [longitude]="data.lon" [arg]="1"></app-child-weather-table>
-        </td>
-      </tr>
-    </ng-container>
-    <tr *ngIf="!weatherData.length">
-      <td colspan="4">No weather data available.</td>
-    </tr>
-  </tbody>
-</table>
+<!-- Include Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container mt-4">
+  <div class="table-responsive">
+    <table class="table table-hover align-middle">
+      <thead>
+        <tr class="table-dark">
+          <th scope="col">City</th>
+          <th scope="col">Temperature</th>
+          <th scope="col">Last Week</th>
+          <th scope="col">Last Month</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let data of weatherData">
+          <tr>
+            <td>{{ data.city }}</td>
+            <td>{{ data.temperature }}</td>
+            <td>
+              <button class="btn btn-primary" (click)="loadLastMonthData(data.lon, data.lat)">Open popup</button>
+            </td>
+            <td>
+              <button class="btn btn-secondary" (click)="toggleShowLastWeek(data)">Open below</button>
+            </td>
+          </tr>
+          <tr *ngIf="isShowLastWeek === data">
+            <td colspan="4" class="table-active">
+              <div class="half-width-table distinct-border">
+                <app-child-weather-table [latitude]="data.lat" [longitude]="data.lon" [arg]="1"></app-child-weather-table>
+              </div>
+            </td>
+          </tr>
+        </ng-container>
+        <tr *ngIf="!weatherData.length">
+          <td colspan="4" class="text-center">No weather data available.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 
+<!-- Optional: Include Bootstrap Bundle with Popper for Bootstrap's JavaScript components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
