@@ -87,9 +87,9 @@ processCityInput(): void {
   }
   toggleShowLastWeek(data: any): void {
     if (this.isShowLastWeek === data) {
-      this.isShowLastWeek = null; // סגירת השורה אם היא כבר פתוחה
+      this.isShowLastWeek = null; // close the row if it's already open
     } else {
-      this.isShowLastWeek = data; // פתיחת השורה עם הנתונים של השבוע האחרון
+      this.isShowLastWeek = data; // Open the row of the clicked city for last week data
     }
   }
   
