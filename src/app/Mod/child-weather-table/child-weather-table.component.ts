@@ -17,7 +17,7 @@ export class ChildWeatherTableComponent implements OnInit {
 
   @Input() latitude!: number | null;
   @Input() longitude!: number | null;
-  @Input() arg!: string | null;
+  @Input() arg!: number | null;
 
   
   weatherData: WeatherData[] = [];
@@ -26,7 +26,8 @@ export class ChildWeatherTableComponent implements OnInit {
 
   ngOnInit() {
     if (this.latitude && this.longitude) {
-      if (this.arg === 'week') {
+      console.log("Hi from Child arg:==>", this.arg);
+      if (this.arg === 1) {
         this.getWeatherData();
       }else{
         this.getWeatherDataMonth();

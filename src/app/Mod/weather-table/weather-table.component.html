@@ -8,16 +8,25 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of weatherData">
-      <td>{{ data.city }}</td>
-      <td>{{ data.temperature }}</td>
-      <td>
-        <button class="btn btn-primary" (click)="loadLastWeekData(data.lon,data.lat)">Open popup</button>        
-      </td>
-      <td>
-        <button class="btn btn-secondary" (click)="loadLastMonthData(data.lon,data.lat)">Open below</button>
-      </td>
-      
+    <ng-container *ngFor="let data of weatherData">
+      <tr>
+        <td>{{ data.city }}</td>
+        <td>{{ data.temperature }}</td>
+        <td>
+          <button class="btn btn-secondary" (click)="toggleShowLastWeek(data)">Open below</button>
+        </td>
+        <td>
+          <button class="btn btn-primary" (click)="loadLastMonthData(data.lon,data.lat)">Open popup</button>
+        </td>
+      </tr>
+      <tr *ngIf="isShowLastWeek === data" >
+        <td colspan="2" class="bold-border">
+          <app-child-weather-table [latitude]="data.lat" [longitude]="data.lon" [arg]="1"></app-child-weather-table>
+        </td>
+      </tr>
+    </ng-container>
+    <tr *ngIf="!weatherData.length">
+      <td colspan="4">No weather data available.</td>
     </tr>
   </tbody>
 </table>

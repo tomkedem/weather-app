@@ -38,4 +38,9 @@
   .modern-table .btn-primary:hover, .modern-table .btn-secondary:hover {
     opacity: 0.8;
   }
+  .bold-border {
+    border: 2px solid #000000; /* צבע ורוחב של המסגרת */
+    border-radius: 8px; /* העגלתיות של הקצוות של המסגרת */
+    padding: 10px; /* מרווח מסביב לתוכן */
+  }
   

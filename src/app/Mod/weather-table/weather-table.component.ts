@@ -18,6 +18,7 @@ export class WeatherTableComponent implements OnInit {
  cities: string[];
  lon: any;
  lat: any;
+ isShowLastWeek: any = null;
  temperature: any | null = null;
   weatherData: IWeatherData[] = [];
   curWeatherData: IWeatherData | undefined;
@@ -84,13 +85,12 @@ processCityInput(): void {
       });
     });
   }
-  loadLastWeekData(lon: any,lat:any): void {
-    
-    this.dialog.open(WeatherDetailsModalComponent, {
-      width: '250px',
-      data: { lon: lon, lat: lat , arg: 'week'}
-      
-    });
+  toggleShowLastWeek(data: any): void {
+    if (this.isShowLastWeek === data) {
+      this.isShowLastWeek = null; // סגירת השורה אם היא כבר פתוחה
+    } else {
+      this.isShowLastWeek = data; // פתיחת השורה עם הנתונים של השבוע האחרון
+    }
   }
   
 
@@ -98,7 +98,7 @@ processCityInput(): void {
     
     this.dialog.open(WeatherDetailsModalComponent, {
       width: '250px',
-      data: { lon: lon, lat: lat , arg: 'mnt'}
+      data: { lon: lon, lat: lat , arg: 0}
       
     });
   }
