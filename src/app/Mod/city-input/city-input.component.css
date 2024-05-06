@@ -1,0 +1,16 @@
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  mat-form-field {
+    width: 300px;  /* Adjust width as necessary */
+    margin-right: 16px;
+  }
+  
+  button {
+    min-width: 100px;
+  }
+  

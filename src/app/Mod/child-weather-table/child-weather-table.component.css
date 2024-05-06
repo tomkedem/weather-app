@@ -1,0 +1,44 @@
+.weather-table-container {
+  width: 100%;
+  overflow-x: auto; /* Enable horizontal scrolling on small screens */
+  max-height: 75vh; /* Set maximum height to 75% of the viewport height */
+  overflow-y: auto; /* Add vertical scroll only when content exceeds the maximum height */
+}
+
+.weather-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.weather-table th,
+.weather-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.weather-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.weather-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* Alternate row background color */
+}
+
+.no-data-message {
+  margin-top: 10px;
+  padding: 12px;
+  background-color: #ffebee;
+  color: #b71c1c;
+  border-radius: 4px;
+}
+
+.weather-table-container {
+  max-height: 75vh; /* קביעת גובה מקסימלי בהתאם ל-75% מגובה המסך */
+  overflow-y: auto; /* הוספת גלילה רק כאשר התוכן חורג מהגובה המקסימלי */
+}
+
+
+

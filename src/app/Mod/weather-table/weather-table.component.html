@@ -1,0 +1,25 @@
+<table class="modern-table">
+  <thead>
+    <tr>
+      <th>City</th>
+      <th>Temperature</th>
+      <th>Last Week</th>
+      <th>Last Month</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of weatherData">
+      <td>{{ data.city }}</td>
+      <td>{{ data.temperature }}</td>
+      <td>
+        <button class="btn btn-primary" (click)="loadLastWeekData(data.lon,data.lat)">Open popup</button>        
+      </td>
+      <td>
+        <button class="btn btn-secondary" (click)="loadLastMonthData(data.lon,data.lat)">Open below</button>
+      </td>
+      
+    </tr>
+  </tbody>
+</table>
+
+

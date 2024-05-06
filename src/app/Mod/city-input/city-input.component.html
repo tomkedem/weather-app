@@ -1,0 +1,12 @@
+<div class="form-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Enter cities</mat-label>
+    <input matInput [(ngModel)]="cities" placeholder="City names, separated by commas">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+</div>
+<!-- Child Component: Display Cities -->
+
+<ng-container *ngIf="isCitiesCall">
+  <app-weather-table [citiesOrg]="cities" [key]="key"></app-weather-table>
+</ng-container>
